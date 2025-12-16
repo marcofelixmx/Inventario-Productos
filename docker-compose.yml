@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  redarbor-db:
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    container_name: redarbor-db
+    environment:
+      SA_PASSWORD: "Password123!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - redarbor-db-data:/var/opt/mssql
+
+volumes:
+  redarbor-db-data:
